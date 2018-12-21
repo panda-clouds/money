@@ -11,11 +11,20 @@
     "pretest": "eslint .",
     "test": "jasmine ./spec/*.spec.js"
   },
-  "name": "pc-money",
+  "name": "@panda-clouds/money",
   "description": "A javascript helper class for working with money",
   "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/panda-clouds/money.git"
+  },
+  "author": { "name" : "Marc Smith",
+              "email" : "mr.marcsmith@me.com",
+              "url" : "https://github.com/mrmarcsmith"
+            },
+  "license": "MIT",
+  "main": "src/PCMoney.js",
+  "engines": {
+    "node": ">= 8"
   }
 }
