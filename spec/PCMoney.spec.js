@@ -214,6 +214,24 @@ describe('dollarStringFromCentsInt', () => {
 		expect(result).toBe("$5.29");
 	});
 
+	it('should handle 1000', () => {
+		const moneyString = 1000;
+		const result = PCMoney.dollarStringFromCentsInt(moneyString);
+		expect(result).toBe("$10.00");
+	});
+
+	it('should handle 20', () => {
+		const moneyString = 2000;
+		const result = PCMoney.dollarStringFromCentsInt(moneyString);
+		expect(result).toBe("$20.00");
+	});
+
+	it('should handle 200', () => {
+		const moneyString = 20000;
+		const result = PCMoney.dollarStringFromCentsInt(moneyString);
+		expect(result).toBe("$200.00");
+	});
+
 	it('should handle 5492', () => {
 		const moneyString = 5492;
 		const result = PCMoney.dollarStringFromCentsInt(moneyString);
@@ -256,12 +274,36 @@ describe('dollarStringFromCentsIntPromise', () => {
 				done();
 			}).catch(done.fail);
 	});
+	it('should handle 5000', (done) => {
+		const moneyString = 5000;
+		PCMoney.dollarStringFromCentsIntPromise(moneyString)
+			.then((result)=>{
+				expect(result).toBe("$50.00");
+				done();
+			}).catch(done.fail);
+	});
 
 	it('should handle 529', (done) => {
 		const moneyString = 529;
 		PCMoney.dollarStringFromCentsIntPromise(moneyString)
 			.then((result)=>{
 				expect(result).toBe("$5.29");
+				done();
+			}).catch(done.fail);
+	});
+	it('should handle 5029', (done) => {
+		const moneyString = 5029;
+		PCMoney.dollarStringFromCentsIntPromise(moneyString)
+			.then((result)=>{
+				expect(result).toBe("$50.29");
+				done();
+			}).catch(done.fail);
+	});
+	it('should handle 5029', (done) => {
+		const moneyString = 5029;
+		PCMoney.dollarStringFromCentsIntPromise(moneyString)
+			.then((result)=>{
+				expect(result).toBe("$50.29");
 				done();
 			}).catch(done.fail);
 	});
