@@ -81,8 +81,8 @@ class PCMoney  {
 		// remove every character except 0123456789.
 		let strippedString = forcedString.replace(/[^\d.]/g, '');
 
-		// strip leading and trailing zeros
-		strippedString = strippedString.replace(/^0+|0+$/g, "");
+		// strip leading zeros
+		strippedString = strippedString.replace(/^0+/g, "");
 
 		const numberOfPeriods = (strippedString.match(/\./g) || []).length;
 		if(numberOfPeriods == 0){
@@ -94,7 +94,9 @@ class PCMoney  {
 		}else if(numberOfPeriods == 1){
 			const array = strippedString.split('.');
 			const dollarPart = array[0];
-			const centsPart = array[1];
+			let centsPart = array[1];
+			// strip trailing zeros from cents
+			centsPart = centsPart.replace(/0+$/g, "");
 			if(!centsPart){
 				//$5.
 				const returnString = dollarPart + centsPart + "00";
