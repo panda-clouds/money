@@ -186,6 +186,33 @@ describe('positiveCentsIntFromDollarStringPromise', () => {
 			});
 	});
 
+	it('should handle 20', (done) => {
+		const moneyString = "20";
+		PCMoney.positiveCentsIntFromDollarStringPromise(moneyString)
+			.then((result)=>{
+				expect(result).toBe(2000);
+				done();
+			}).catch(done.fail);
+	});
+
+	it('should handle 10', (done) => {
+		const moneyString = "10";
+		PCMoney.positiveCentsIntFromDollarStringPromise(moneyString)
+			.then((result)=>{
+				expect(result).toBe(1000);
+				done();
+			}).catch(done.fail);
+	});
+
+	it('should handle 010', (done) => {
+		const moneyString = "010";
+		PCMoney.positiveCentsIntFromDollarStringPromise(moneyString)
+			.then((result)=>{
+				expect(result).toBe(1000);
+				done();
+			}).catch(done.fail);
+	});
+
 });
 
 describe('dollarStringFromCentsInt', () => {

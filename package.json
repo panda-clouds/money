@@ -13,7 +13,7 @@
   },
   "name": "@panda-clouds/money",
   "description": "A javascript helper class for working with money",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/panda-clouds/money.git"
